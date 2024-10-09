@@ -8,7 +8,7 @@
 2. Instance type 是 AWS 中的執行個體類型，擁有不同組合的 CPU、記憶體、儲存空間等配置，讓使用者可以根據需求挑選適合的資源
 3. Nginx 是一個網路伺服器套件，可以控制外部連線進來的使用者將其導引到對應的伺服器上來提供服務，也可以處理流量的平衡控制
 4. pm2 可以幫助管理 Node.js 的專案，控管不同伺服器的開關、狀態以及監控其記憶體用量，另外也有自動化的功能讓更新伺服器，或甚至主機重啟時都可以自動將伺服器恢復上線
-5. proxy 通常是進行請求轉發的動作，在本次作業中操作的部分是 reverse proxy，將使用者的請求透過 Nginx 轉發到主機內的伺服器中，一方面可以隱藏主機的 IP 位址並加強安全性，一方面也可以平衡伺服器的負載。至於 forward proxy 則主要用於隱藏使用者端的 IP 位址來達到繞過防火牆限制的效果。
+5. proxy 通常是進行請求轉發的動作，在本次作業中操作的部分是 reverse proxy，將使用者的請求透過 Nginx 轉發到主機內的伺服器中，一方面可以隱藏主機的 IP 位址並加強安全性，一方面也可以平衡伺服器的負載。至於 forward proxy 則主要用於隱藏使用者端的 IP 位址來達到繞過防火牆限制的效果
 6. Nginx 設定檔如下
 
 ```nginx
@@ -27,14 +27,18 @@ server {
 }
 ```
 
-7. Security Group 是一個防護的機制設定，可以限制連線進來的 IP、port、協定等
-8. sudo 是一個 Linux 平台的指令工具，可以讓非系統管理員的使用者獲得一部份的權限來執行一些權限較高的任務，例如修改系統設定檔
+7. Security Group 是一個防護的機制設定，可以限制連線進來的 IP、port、協定等，以避免遭到外來的不明主機的隨意侵入導致不可預期的問題
+8. sudo 是一個 Linux 平台的指令工具，可以讓非系統管理員的使用者獲得一部份的權限來執行一些權限較高的任務，例如修改系統設定檔等
 9. 在目錄 `var/log/nginx` 底下可以找到 `access.log` 和 `error.log` 來查看紀錄，主要可以透過 `error.log` 來查看伺服器在運作的過程中是否有出現異常的狀態
 10. 無
 11. 參考資料
 
     https://aws.amazon.com/tw/ec2/instance-types/
+
     https://www.youtube.com/watch?v=42iQKuQodW4
+
     https://www.youtube.com/watch?v=7VAI73roXaY
+
     https://pm2.keymetrics.io/
+
     https://note.drx.tw/2008/01/linuxsudo.html
